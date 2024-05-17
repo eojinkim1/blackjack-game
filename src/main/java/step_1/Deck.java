@@ -33,9 +33,4 @@ public class Deck {
         return cards.remove(0);
     }
 
-    public void printDeck() {
-        for (Card card : cards) {
-            System.out.println(card);
-        }
-    }
 }
