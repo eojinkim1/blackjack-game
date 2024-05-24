@@ -19,25 +19,10 @@ public class Dealer {
     }
 
     public int getHandValue() {
-        int totalNumbers = 0;
-        int aceCount = 0;
-
-        for (Card card : hand) {
-            int cardNumber = card.getNUMBER();
-            if (cardNumber == 1) {
-                aceCount++;
-                totalNumbers += 11;
-            } else if (cardNumber >= 10) {
-                totalNumbers += 10;
-            } else {
-                totalNumbers += cardNumber;
-            }
-        }
-        while (totalNumbers > 21 && aceCount > 0) {
-            totalNumbers -= 10;
-            aceCount--;
-        }
-        return totalNumbers;
+        return BlackJackUtils.handValue(hand);
+    }
+    public boolean isBusted(){
+        return BlackJackUtils.isBusted(hand);
     }
 
     public boolean shouldHit() {
