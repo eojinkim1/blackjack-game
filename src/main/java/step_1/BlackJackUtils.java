@@ -3,29 +3,32 @@ package step_1;
 import java.util.List;
 
 public class BlackJackUtils {
-    private static final int blackJack = 21;
+    private static final int BLACKJACK = 21;
+    private static final int FACE_CARD_VALUE = 10;
+    private static final int ACE_HIGH_VALUE = 11;
+    private static final int ACE_LOW_VALUE = 1;
     public static int handValue(List<Card> hand){
         int totalNumbers = 0;
         int aceCount = 0;
 
         for (Card card : hand) {
             int cardNumber = card.getNUMBER();
-            if (cardNumber == 1){
+            if (cardNumber == ACE_LOW_VALUE){
                 aceCount++;
-                totalNumbers += 11;
-            } else if (cardNumber >= 10){
-                totalNumbers += 10;
+                totalNumbers += ACE_HIGH_VALUE;
+            } else if (cardNumber >= FACE_CARD_VALUE){
+                totalNumbers += FACE_CARD_VALUE;
             } else {
-                totalNumbers +=cardNumber;
+                totalNumbers += cardNumber;
             }
         }
-        while (totalNumbers > 21 && aceCount > 0){
+        while (totalNumbers > BLACKJACK && aceCount > 0){
             totalNumbers -= 10;
             aceCount--;
         }
         return totalNumbers;
     }
     public static boolean isBusted(List<Card> hand ){
-        return handValue(hand) > blackJack;
+        return handValue(hand) > BLACKJACK;
     }
 }
