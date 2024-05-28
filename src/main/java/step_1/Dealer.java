@@ -1,13 +1,14 @@
 package step_1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dealer {
     private List<Card> hand;
     private static final int HIT_THRESHOLD = 17;
 
-    public Dealer(List<Card> hand) {
-        this.hand = hand;
+    public Dealer() {
+        this.hand = new ArrayList<>();
     }
 
     public void addCard(Card card) {
@@ -33,5 +34,9 @@ public class Dealer {
         while (shouldHit()) {
             addCard(deck.drawCard());
         }
+    }
+    @Override
+    public String toString() {
+        return "딜러 카드: " + hand;
     }
 }

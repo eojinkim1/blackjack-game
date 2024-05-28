@@ -1,15 +1,15 @@
 package step_1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
     private List<Card> hand;
-    private static final int blackJack = 21;
-    public Player(List<Card> hand) {
-        this.hand = hand;
+    public Player() {
+        this.hand = new ArrayList<>();
     }
 
-    public void hit(Card card){
+    public void addCard(Card card){
         hand.add(card);
     }
 
@@ -24,5 +24,9 @@ public class Player {
     }
     public List<Card> getHand(){
         return hand;
+    }
+    @Override
+    public String toString() {
+        return "플레이어 카드: " + hand;
     }
 }
