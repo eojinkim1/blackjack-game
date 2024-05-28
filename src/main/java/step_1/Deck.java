@@ -5,10 +5,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-    private List<Card> cards;
-
+    private final List<Card> CARD_DECK;
     public Deck() {
-        this.cards = new ArrayList<>();
+        this.CARD_DECK = new ArrayList<>();
         initializeDeck();
         shuffleDeck();
     }
@@ -16,21 +15,25 @@ public class Deck {
         String[] suits = {"♦", "♥", "♣", "♠"};
         for (String suit : suits) {
             for (int number = 1; number <= 13; number++) {
-                cards.add(new Card(suit, number));
+                CARD_DECK.add(new Card(suit, number));
             }
         }
     }
     private void shuffleDeck(){
-        Collections.shuffle(cards);
+        Collections.shuffle(CARD_DECK);
     }
-    public List<Card> getCards(){
-        return cards;
+    public List<Card> getCARD_DECK(){
+        return CARD_DECK;
     }
     public Card drawCard(){
-        if (cards.isEmpty()){
+        if (CARD_DECK.isEmpty()){
             return null;
         }
-        return cards.remove(0);
+        return CARD_DECK.removeFirst();
     }
-
+    public void resetDeck(){
+        CARD_DECK.clear();
+        initializeDeck();
+        shuffleDeck();
+    }
 }
