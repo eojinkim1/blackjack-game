@@ -17,6 +17,13 @@ public class Card {
 
     @Override
     public String toString() {
-        return SUIT + NUMBER;
+        String textCard = switch (NUMBER) {
+            case 1 -> "A";
+            case 11 -> "J";
+            case 12 -> "Q";
+            case 13 -> "K";
+            default -> String.valueOf(NUMBER);
+        };
+        return SUIT + textCard;
     }
 }
