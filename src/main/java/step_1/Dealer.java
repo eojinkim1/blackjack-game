@@ -22,7 +22,8 @@ public class Dealer {
     public int getHandValue() {
         return BlackJackUtils.handValue(hand);
     }
-    public boolean isBusted(){
+
+    public boolean isBusted() {
         return BlackJackUtils.isBusted(hand);
     }
 
@@ -35,8 +36,18 @@ public class Dealer {
             addCard(deck.drawCard());
         }
     }
+
     @Override
     public String toString() {
-        return "딜러 카드: " + hand;
+        return "딜러 카드 : " + hand.toString();
+    }
+
+    public String toStringWithHiddenCard() {
+        if (hand.size() > 1) {
+            List<Card> hiddenHand = new ArrayList<>(hand);
+            hiddenHand.set(0, new Card("Hidden"));
+            return hiddenHand.toString();
+        }
+        return "딜러 카드 : " + hand;
     }
 }
