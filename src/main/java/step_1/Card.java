@@ -8,6 +8,11 @@ public class Card {
         this.SUIT = suit;
         this.NUMBER = number;
     }
+    public Card(String hidden){
+        this.SUIT = hidden;
+        this.NUMBER = 0;
+    }
+
     public String getSUIT(){
         return SUIT;
     }
@@ -17,13 +22,17 @@ public class Card {
 
     @Override
     public String toString() {
-        String textCard = switch (NUMBER) {
-            case 1 -> "A";
-            case 11 -> "J";
-            case 12 -> "Q";
-            case 13 -> "K";
-            default -> String.valueOf(NUMBER);
-        };
-        return SUIT + textCard;
+        if (NUMBER == 0) {
+            return "Hidden";
+        } else {
+            String textCard = switch (NUMBER) {
+                case 1 -> "A";
+                case 11 -> "J";
+                case 12 -> "Q";
+                case 13 -> "K";
+                default -> String.valueOf(NUMBER);
+            };
+            return SUIT + textCard;
+        }
     }
 }
