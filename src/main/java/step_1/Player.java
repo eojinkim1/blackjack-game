@@ -27,6 +27,6 @@ public class Player {
     }
     @Override
     public String toString() {
-        return "플레이어 카드: " + hand;
+        return hand.toString();
     }
 }
