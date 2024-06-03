@@ -44,6 +44,6 @@ public class Dealer {
             hiddenHand.set(0, new Card("Hidden"));
             return hiddenHand.toString();
         }
-        return "딜러 카드 : " + hand;
+        return hand.toString();
     }
 }
