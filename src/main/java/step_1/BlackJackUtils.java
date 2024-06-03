@@ -16,18 +16,22 @@ public class BlackJackUtils {
             if (cardNumber == ACE_LOW_VALUE){
                 aceCount++;
                 totalNumbers += ACE_HIGH_VALUE;
-            } else if (cardNumber >= FACE_CARD_VALUE){
-                totalNumbers += FACE_CARD_VALUE;
             } else {
-                totalNumbers += cardNumber;
+                totalNumbers += Math.min(cardNumber, FACE_CARD_VALUE);
             }
         }
+        totalNumbers = adjustAce(totalNumbers, aceCount);
+        return totalNumbers;
+    }
+
+    private static int adjustAce(int totalNumbers, int aceCount) {
         while (totalNumbers > BLACKJACK && aceCount > 0){
             totalNumbers -= 10;
             aceCount--;
         }
         return totalNumbers;
     }
+
     public static boolean isBusted(List<Card> hand ){
         return handValue(hand) > BLACKJACK;
     }
