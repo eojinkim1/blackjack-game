@@ -15,10 +15,6 @@ public class Dealer {
         hand.add(card);
     }
 
-    public List<Card> getHand() {
-        return hand;
-    }
-
     public int getHandValue() {
         return BlackJackUtils.handValue(hand);
     }

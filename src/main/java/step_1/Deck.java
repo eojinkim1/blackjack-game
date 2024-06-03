@@ -22,9 +22,7 @@ public class Deck {
     private void shuffleDeck(){
         Collections.shuffle(CARD_DECK);
     }
-    public List<Card> getCARD_DECK(){
-        return CARD_DECK;
-    }
+
     public Card drawCard(){
         if (CARD_DECK.isEmpty()){
             return null;

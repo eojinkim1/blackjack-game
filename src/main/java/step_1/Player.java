@@ -13,18 +13,13 @@ public class Player {
         hand.add(card);
     }
 
-    public void stay(){
-    }
-
     public int getHandValue() {
         return BlackJackUtils.handValue(hand);
     }
     public boolean isBusted(){
         return BlackJackUtils.isBusted(hand);
     }
-    public List<Card> getHand(){
-        return hand;
-    }
+
     @Override
     public String toString() {
         return hand.toString();

@@ -13,9 +13,6 @@ public class Card {
         this.NUMBER = 0;
     }
 
-    public String getSUIT(){
-        return SUIT;
-    }
     public int getNUMBER(){
         return NUMBER;
     }
